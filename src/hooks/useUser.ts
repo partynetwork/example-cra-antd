@@ -7,7 +7,7 @@ const userFetcher = async (): Promise<UserInterface> => {
     const { data } = await axios.get('/api/users/me');
     return data;
   } catch (e) {
-    throw e;
+    throw e.response;
   }
 };
 export default function useUser() {
@@ -15,7 +15,7 @@ export default function useUser() {
   const loading = !data && !error;
   return {
     loading,
-    error: error?.response || undefined,
+    error: error || undefined,
     user: data,
     isAuthentication: !!data,
     mutate,
