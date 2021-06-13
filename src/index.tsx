@@ -15,7 +15,7 @@ import Cookies from 'js-cookie';
 import isEmpty from 'lodash/isEmpty';
 import { Provider } from 'react-redux';
 
-import 'antd/dist/antd.css';
+import './styles/index.less';
 // Use consistent styling
 import 'sanitize.css/sanitize.css';
 
