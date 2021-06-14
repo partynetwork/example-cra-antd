@@ -6,7 +6,10 @@ export const LoginPage = () => {
     <>
       <p>Login Page</p>
       <Button type="primary" htmlType="button">
-        DDD
+        Primary
+      </Button>
+      <Button type="primary" danger>
+        Danger
       </Button>
       <Button>Hello</Button>
     </>

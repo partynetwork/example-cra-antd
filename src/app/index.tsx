@@ -8,16 +8,17 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import { GlobalStyle } from 'styles/global-styles';
-
 import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
-import { useTranslation } from 'react-i18next';
 import defineAbilityFor, { AbilityContext } from './components/Ability';
 import useUser from '../hooks/useUser';
 import { LoginPage } from './pages/LoginPage/Loadable';
+import { DashboardLayout } from './components/DashboardLayout';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -35,18 +36,18 @@ export function App() {
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
       <AbilityContext.Provider value={defineAbilityFor(user)}>
-        <Switch>
-          {isAuthentication ? (
-            <>
+        {isAuthentication ? (
+          <DashboardLayout>
+            <Switch>
               <Route exact path="/" component={HomePage} />
               <Route component={NotFoundPage} />
-            </>
-          ) : (
-            <>
-              <Route component={LoginPage} />
-            </>
-          )}
-        </Switch>
+            </Switch>
+          </DashboardLayout>
+        ) : (
+          <Switch>
+            <Route component={LoginPage} />
+          </Switch>
+        )}
       </AbilityContext.Provider>
       <GlobalStyle />
     </BrowserRouter>

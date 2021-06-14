@@ -34,10 +34,11 @@ import './locales/i18n';
 const store = configureAppStore();
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 
+//
 axios.interceptors.request.use(async config => {
   const jwtToken = Cookies.get('jwtToken') || '';
   if (!isEmpty(jwtToken) && !config?.headers['Authorization']) {
-    config.headers = { Authorization: `Bearer ${jwtToken}` };
+    config.headers['Authorization'] = `Bearer ${jwtToken}`;
   }
   return config;
 });

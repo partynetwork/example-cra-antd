@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "4.6.2",
     "@casl/ability": "5.3.1",
     "@casl/react": "2.3.0",
     "@craco/craco": "6.1.2",
@@ -25,6 +26,7 @@
     "@types/webpack-env": "1.15.2",
     "D": "1.0.0",
     "antd": "4.16.2",
+    "beautiful-react-hooks": "0.35.0",
     "chalk": "4.1.0",
     "craco-less": "1.17.1",
     "cross-env": "7.0.2",
